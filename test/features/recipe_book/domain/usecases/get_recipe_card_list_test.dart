@@ -14,8 +14,8 @@ import 'get_recipe_card_list_test.mocks.dart';
 @GenerateMocks([RecipeCardRepository])
 void main() {
   // initialization outside of setUp
-  final tRecipeCardOne = RecipeCard(images: 'test1.url', totalTime: '20min', rating: '3.5', name: 'Plov');
-  final tRecipeCardTwo = RecipeCard(images: 'test2.url', totalTime: '25min', rating: '4.5', name: 'Salmon');
+  final tRecipeCardOne = RecipeCard(images: 'test1.url', totalTime: '20min', rating: 3.5, name: 'Plov');
+  final tRecipeCardTwo = RecipeCard(images: 'test2.url', totalTime: '25min', rating: 4.5, name: 'Salmon');
   final tListRecipeCard = [tRecipeCardOne,tRecipeCardTwo];
   final mockRecipeCardRepository = MockRecipeCardRepository();
   final GetRecipeCardList usecase = GetRecipeCardList(mockRecipeCardRepository);

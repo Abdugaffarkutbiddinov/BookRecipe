@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 class RecipeCard extends Equatable {
   final String name;
   final String images;
-  final String rating;
+  final double rating;
   final String totalTime;
 
   RecipeCard(

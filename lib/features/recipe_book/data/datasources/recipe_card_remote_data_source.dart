@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:recipe_app/core/error/exception.dart';
 import 'package:recipe_app/features/recipe_book/data/models/recipe_card_model.dart';
 import 'package:http/http.dart' as http;
@@ -21,7 +23,12 @@ class RecipeCardRemoteDataSourceImpl implements RecipeCardRemoteDataSource {
     }
     );
     if (response.statusCode == 200) {
-      return recipeCardListModelFromJson(response.body);
+      Map data = jsonDecode(response.body);
+      List _temp = [];
+      for(var i in data['feed'])  {
+        _temp.add(i['content']['details']);
+      }
+      return RecipeCardModel.recipesFromSnapshot(_temp);
     } else {
       throw ServerException();
     }

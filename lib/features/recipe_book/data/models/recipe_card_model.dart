@@ -1,8 +1,13 @@
 import 'dart:convert';
 
 import 'package:recipe_app/features/recipe_book/domain/entities/recipe_card.dart';
-List<RecipeCardModel> recipeCardListModelFromJson(String str) => List<RecipeCardModel>.from(json.decode(str).map((x) => RecipeCardModel.fromJson(x)));
-String recipeCardListToJson(List<RecipeCardModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+List<RecipeCardModel> recipeCardListModelFromJson(String str) =>
+    List<RecipeCardModel>.from(
+        json.decode(str).map((x) => RecipeCardModel.fromJson(x)));
+
+String recipeCardListToJson(List<RecipeCardModel> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 // TODO Convert images to json
 class RecipeCardModel extends RecipeCard {
@@ -20,10 +25,15 @@ class RecipeCardModel extends RecipeCard {
   }
 
   Map<String, dynamic> toJson() => {
-    "name": name,
-    "images": images,
-    "rating": rating,
-    "totalTime": totalTime,
-  };
+        "name": name,
+        "images": images,
+        "rating": rating,
+        "totalTime": totalTime,
+      };
 
+  static List<RecipeCardModel> recipesFromSnapshot(List snapshot) {
+    return snapshot.map((data) {
+      return RecipeCardModel.fromJson(data);
+    }).toList();
+  }
 }

@@ -1,0 +1,10 @@
+{
+  "name": "Plov",
+  "images": [
+    {
+      "hostedLargeUrl": "test1.url"
+    }
+  ],
+  "rating": 3.5,
+  "totalTime": "20min"
+}

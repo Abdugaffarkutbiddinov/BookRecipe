@@ -19,17 +19,17 @@ class RecipeCardBloc extends Bloc<RecipeCardEvent, RecipeCardState> {
 
   RecipeCardBloc({required this.getRecipeCardList})
       : super(RecipeCardInitial()) {
-    on<RecipeCardEvent>((event, emit) async* {
-      yield Loading();
+    on<RecipeCardEvent>((event, emit) async {
+      emit(Loading());
       final failureOrRecipeCardList = await getRecipeCardList(NoParams());
-      yield* _eitherLoadedOrErrorState(failureOrRecipeCardList);
+       emit(_eitherLoadedOrErrorState(failureOrRecipeCardList));
     });
   }
 
-  Stream<RecipeCardState> _eitherLoadedOrErrorState(
+  RecipeCardState _eitherLoadedOrErrorState(
     Either<Failure, List<RecipeCard>> failureOrRecipeCardList,
-  ) async* {
-    yield failureOrRecipeCardList.fold(
+  ) {
+    return failureOrRecipeCardList.fold(
         (failure) => Error(message: _mapFailureToMessage(failure)),
         (recipeCardList) => Loaded(recipeCardList: recipeCardList));
   }

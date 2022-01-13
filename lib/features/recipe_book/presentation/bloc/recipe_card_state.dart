@@ -15,14 +15,14 @@ class Loading extends RecipeCardState {
   List<Object?> get props => throw UnimplementedError();
 }
 
-class Loaded extends RecipeCardEvent {
+class Loaded extends RecipeCardState {
   final List<RecipeCard> recipeCardList;
   Loaded({required this.recipeCardList});
   @override
   List<Object?> get props => [recipeCardList];
 }
 
-class Error extends RecipeCardEvent {
+class Error extends RecipeCardState {
   final String message;
   Error({required this.message});
   @override

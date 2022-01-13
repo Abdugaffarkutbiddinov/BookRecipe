@@ -7,8 +7,8 @@ import 'package:recipe_app/core/network/network_info.dart';
 import 'package:recipe_app/features/recipe_book/data/datasources/recipe_card_remote_data_source.dart';
 import 'package:recipe_app/features/recipe_book/data/models/recipe_card_model.dart';
 import 'package:recipe_app/features/recipe_book/data/repositories/recipe_card_repository_impl.dart';
-import 'package:mockito/annotations.dart';
 import 'package:recipe_app/features/recipe_book/domain/entities/recipe_card.dart';
+import 'package:mockito/annotations.dart';
 import 'recipe_card_repository_impl_test.mocks.dart';
 
 @GenerateMocks([RecipeCardRemoteDataSource, NetworkInfo])
